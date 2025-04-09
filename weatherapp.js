@@ -20,14 +20,6 @@ async function checkWeather(city) {
   const data = await response.json();
   console.log(data);
 
-  // Ensure that the required properties are present in the API response
-  if (!data.main || !data.main.temp || !data.weather || !data.weather[0].main) {
-    document.querySelector(".error").style.display = "block";
-    document.querySelector(".weather").style.display = "none";
-    document.querySelector(".error p").innerText = "Invalid data received.";
-    return;
-  }
-
   // If data is valid, display weather information
   document.querySelector(".city").innerHTML = data.name;
   document.querySelector(".temp").innerHTML =
